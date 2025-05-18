@@ -7,16 +7,18 @@
 // - [x] Clear button
 // - [x] Undo button
 // - [x] = and x
-// - [ ] host on server so everyone else can play too!
+// - [x] host on server so everyone else can play too!
 // - [x] Make animations when you complete
-// - [ ] Make the animations
+// - [ ] Make the animations for buttons and cells
 // - [ ] `Share` button when you complete a puzzle that copies the snippet to your clipboard
 // - [ ] Hide `Clear Undo Pause` when complete, maybe a modal!
 // - [ ] Pause button
 // - [ ] Seeds so that you can race your friends
 // - [ ] Rolling average
 // - [ ] Size control
-// - [ ] Animation when you click
+
+const EMOJI_ONE = '🟠'
+const EMOJI_TWO = '🔵'
 
 
 class Puzzle {
@@ -109,17 +111,17 @@ class Puzzle {
             for (const [i, j] of position) {
                 // Check to see what you can place there
                 // TODO: This could be abstracted away to just return a list of what you can place
-                this.board[i][j] = '🍞'
+                this.board[i][j] = EMOJI_ONE
                 let could_place_bread = this.validate_partial(i, j)
-                this.board[i][j] = '💖'
+                this.board[i][j] = EMOJI_TWO
                 let could_place_heart = this.validate_partial(i, j)
 
                 if (could_place_bread && could_place_heart) {
-                    this.board[i][j] = Math.random() < 0.5 ? '🍞' : '💖'
+                    this.board[i][j] = Math.random() < 0.5 ? EMOJI_ONE : EMOJI_TWO
                 } else if (could_place_bread) {
-                    this.board[i][j] = '🍞'
+                    this.board[i][j] = EMOJI_ONE
                 } else if (could_place_heart) {
-                    this.board[i][j] = '💖'
+                    this.board[i][j] = EMOJI_TWO
                 } else {
                     is_busted = true
                 }
@@ -174,8 +176,8 @@ class Puzzle {
 
     validate_partial(row, col) {
         function listHas3(list) {
-            return list.filter(e => e === '🍞').length <= (list.length / 2) &&
-                list.filter(e => e === '💖').length <= (list.length / 2)
+            return list.filter(e => e === EMOJI_ONE).length <= (list.length / 2) &&
+                list.filter(e => e === EMOJI_TWO).length <= (list.length / 2)
         }
 
         function no3InRow(list) {
@@ -278,7 +280,7 @@ class Puzzle {
         }
 
         let count = 0
-        for (const piece of ['🍞', '💖']) {
+        for (const piece of [EMOJI_ONE, EMOJI_TWO]) {
             this.board[row][col] = piece
             if (this.validate_full()) {
                 count += this._count_solutions(nextRow, nextCol)
@@ -363,9 +365,9 @@ class Game {
                     const previous_value = this.puzzle.get_value(i, j)
                     if (!cell_is_fixed) {
                         function next_value(current) {
-                            if (current === '🍞') return '💖'
-                            if (current === '💖') return null
-                            return '🍞'
+                            if (current === EMOJI_ONE) return EMOJI_TWO
+                            if (current === EMOJI_TWO) return null
+                            return EMOJI_ONE
                         }
                         this.puzzle.set_value(next_value(this.puzzle.get_value(i, j)), i, j)
                         const content_div = cell.querySelector('.cell-content')
