@@ -16,10 +16,17 @@
 // - [ ] Seeds so that you can race your friends
 // - [ ] Rolling average
 // - [ ] Size control
+// - [ ] Store prefered emojis in cookie
 
-const EMOJI_ONE = '🟠'
-const EMOJI_TWO = '🔵'
+const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const isEasternTime = (
+    timeZone === "America/New_York" ||
+    timeZone === "America/Detroit" ||
+    timeZone === "America/Toronto" // Optional: include if you want Canadian Eastern
+);
 
+const EMOJI_ONE = isEasternTime ? '🍞' : '🟠'
+const EMOJI_TWO = isEasternTime ? '💖' : '🔵'
 
 class Puzzle {
     constructor(size) {
