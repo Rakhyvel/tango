@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Puzzle Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&family=Source+Code+Pro:ital,wght@0,900;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="tango.css">
+    <script src="tango.js"></script>
+</head>
+
+<body>
+    <button onclick="game.new_puzzle()">Generate New Puzzle</button>
+    <p id="time-display">00:00</p>
+    <table id="board"></table>
+    <div class="horizontal">
+        <button onclick="game.clear()" , id="clear-button">Clear</button>
+        <button onclick="game.undo()" , id="undo-button">Undo</button>
+    </div>
+</body>
+
+</html>

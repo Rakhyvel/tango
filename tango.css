@@ -1,0 +1,125 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #444;
+}
+
+body {
+    height: 100dvh;
+    overflow: hidden;
+    touch-action: none;
+}
+
+#time-display {
+    font-size: 2vmin;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 1vmin;
+}
+
+table.glow {
+    animation: glow 1.5s ease-in-out;
+    border-collapse: collapse;
+}
+
+td {
+    width: 12vmin;
+    height: 12vmin;
+    font-size: 5vmin;
+    text-align: center;
+    vertical-align: middle;
+    border: 2px solid #EBE4DE;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: visible;
+}
+
+.cell-content {
+    position: relative;
+    z-index: 1;
+}
+
+.edge-text {
+    position: absolute;
+    font-size: 2vmin;
+    background-color: #fff;
+    font-family: "Quicksand", sans-serif;
+    z-index: 1;
+    background: white;
+    color: #974;
+    padding: 5%;
+}
+
+
+.edge-text.bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.edge-text.right {
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+td.fixed {
+    background-color: #EEEAE7;
+    cursor: default;
+    pointer-events: none;
+}
+
+.bad {
+    position: relative;
+    background-image: repeating-linear-gradient(135deg,
+            rgba(253, 20, 20, 0.4),
+            rgba(253, 20, 20, 0.4) 10px,
+            transparent 5%,
+            transparent 25%);
+    background-size: 100% 100%;
+}
+
+button {
+    display: block;
+    margin: 2vmin auto;
+    padding: 2vmin 2vmin;
+    font-size: 2vmin;
+    max-width: 40vw;
+    border: 2px solid #444;
+    background-color: #fff;
+    border-radius: 48px;
+}
+
+div.horizontal {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 2vmin;
+    justify-content: center;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 150, 255, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 15px rgba(0, 150, 255, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(0, 150, 255, 0.2);
+    }
+}
+
+@media (max-width: 600px) {
+    /* TODO: When I host, fill in with good values */
+}
