@@ -6,7 +6,7 @@ body {
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    color: #444;
+    color: #464646;
 }
 
 body {
@@ -36,7 +36,7 @@ td {
     font-size: 5vmin;
     text-align: center;
     vertical-align: middle;
-    border: 2px solid #EBE4DE;
+    border: 3px solid #EBE4DE;
     cursor: pointer;
     user-select: none;
     position: relative;
@@ -51,11 +51,11 @@ td {
 .edge-text {
     position: absolute;
     font-size: 4vmin;
-    background-color: #fff;
+    background-color: #D0D0D0;
     font-family: "Quicksand", sans-serif;
     z-index: 1;
     background: white;
-    color: #974;
+    color: #F00;
     padding: 0.1em 0.0em;
     line-height: 75%;
     display: inline-block;
@@ -76,7 +76,7 @@ td {
 }
 
 td.fixed {
-    background-color: #EEEAE7;
+    background-color: #F5F5F5;
     cursor: default;
     pointer-events: none;
 }
@@ -97,7 +97,7 @@ button {
     padding: 2vmin 2vmin;
     font-size: 2vmin;
     max-width: 40vw;
-    border: 2px solid #444;
+    border: 2px solid #464646;
     background-color: #fff;
     border-radius: 48px;
 }
