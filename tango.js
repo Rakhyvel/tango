@@ -28,8 +28,8 @@ const isEasternTime = (
 const EMOJI_ONE = isEasternTime ? '🍞' : '🟠'
 const EMOJI_TWO = isEasternTime ? '💖' : '🔵'
 
-const EQ_SYMBOL = '='
-const NEQ_SYMBOL = 'X'
+const EQ_SYMBOL = '🟰'
+const NEQ_SYMBOL = '✖'
 
 class Puzzle {
     constructor(size) {
