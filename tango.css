@@ -50,13 +50,16 @@ td {
 
 .edge-text {
     position: absolute;
-    font-size: 2vmin;
+    font-size: 4vmin;
     background-color: #fff;
     font-family: "Quicksand", sans-serif;
     z-index: 1;
     background: white;
     color: #974;
-    padding: 5%;
+    padding: 0.1em 0.2em;
+    line-height: 75%;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 

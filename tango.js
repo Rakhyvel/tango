@@ -28,6 +28,9 @@ const isEasternTime = (
 const EMOJI_ONE = isEasternTime ? '🍞' : '🟠'
 const EMOJI_TWO = isEasternTime ? '💖' : '🔵'
 
+const EQ_SYMBOL = '='
+const NEQ_SYMBOL = 'X'
+
 class Puzzle {
     constructor(size) {
         this.size = size;
@@ -157,9 +160,9 @@ class Puzzle {
                     continue
                 }
                 if (this.get_value(i, j) == this.get_value(i + 1, j)) {
-                    this.horizontal[i][j] = '='
+                    this.horizontal[i][j] = EQ_SYMBOL
                 } else {
-                    this.horizontal[i][j] = 'x'
+                    this.horizontal[i][j] = NEQ_SYMBOL
                 }
             }
         }
@@ -173,9 +176,9 @@ class Puzzle {
                     continue
                 }
                 if (this.get_value(i, j) == this.get_value(i, j + 1)) {
-                    this.vertical[i][j] = '='
+                    this.vertical[i][j] = EQ_SYMBOL
                 } else {
-                    this.vertical[i][j] = 'x'
+                    this.vertical[i][j] = NEQ_SYMBOL
                 }
             }
         }
@@ -211,9 +214,9 @@ class Puzzle {
             if (value1 === null || value2 === null) {
                 return true
             }
-            if (symbol == '=') {
+            if (symbol == EQ_SYMBOL) {
                 return value1 === value2
-            } else if (symbol == 'x') {
+            } else if (symbol == NEQ_SYMBOL) {
                 return value1 !== value2
             }
         }
